@@ -2,18 +2,21 @@ const listForm = document.getElementById("jsForm");
 const input = document.getElementById("jsInput");
 const ul = document.getElementById("jsUl");
 
+let INPUT_VALUE = "";
+
 function handleDelete(event) {
   event.preventDefault();
   const delBtn = event.target;
   const li = delBtn.parentNode;
   ul.removeChild(li);
-  console.log("삭제완료");
 }
 
-function paintList(li, inputValue) {
+function paintList() {
+  const li = document.createElement("li");
   const span = document.createElement("span");
   const delBtn = document.createElement("button");
-  span.innerText = `${inputValue}`;
+  ul.appendChild(li);
+  span.innerText = `${INPUT_VALUE}`;
   delBtn.innerText = "삭제";
   delBtn.id = "jsDelete";
   delBtn.addEventListener("click", handleDelete);
@@ -23,10 +26,8 @@ function paintList(li, inputValue) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  const inputValue = event.target.firstChild.value;
-  const li = document.createElement("li");
-  ul.appendChild(li);
-  paintList(li, inputValue);
+  INPUT_VALUE = event.target.firstChild.value;
+  paintList();
 }
 
 function init() {
