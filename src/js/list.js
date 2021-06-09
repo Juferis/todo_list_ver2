@@ -1,5 +1,4 @@
 const listForm = document.getElementById("jsForm");
-const input = document.getElementById("jsInput");
 const ul = document.getElementById("jsUl");
 
 let INPUT_VALUE = "";
@@ -26,7 +25,8 @@ function paintList() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  INPUT_VALUE = event.target.firstChild.value;
+  console.log(event.targer);
+  INPUT_VALUE = event.target.querySelector("input").value;
   paintList();
 }
 
