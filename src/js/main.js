@@ -3,10 +3,35 @@ const listMain = document.getElementById("jsList");
 const mainDiv = document.getElementById("mainDiv");
 
 let INPUT_VALUE = "";
+let NOW_Div = "";
 
 let divArr = [];
 let formArr = [];
 let listArr = [];
+let stack = "";
+
+function handleTest(li) {
+  stack.appendChild(li);
+  stack = "";
+}
+
+function handleDragover(event) {
+  if(event.target.className == "list__main__div dropzone"){
+    const ul = event.target.lastChild;
+    NOW_Div = event.target.parentNode;
+    stack = ul;
+  }
+}
+
+function handleDragend(event) {
+  const li = event.target;
+  const ul = li.parentNode;
+  const lastDiv = ul.parentNode;
+  if(lastDiv != NOW_Div) {
+    ul.removeChild(li);
+    handleTest(li);
+  }
+}
 
 function handleDelete(event) {
   event.preventDefault();
@@ -21,9 +46,10 @@ function paintList(parentDiv) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const delBtn = document.createElement("button");
+  li.draggable="true";
   ul.appendChild(li);
   span.innerText = `${INPUT_VALUE}`;
-  delBtn.innerText = "삭제";
+  delBtn.innerText = "X";
   delBtn.id = "jsDelete";
   delBtn.addEventListener("click", handleDelete);
   li.appendChild(span);
@@ -70,6 +96,9 @@ function handleClickAddBtn() {
   const divNum = divArr.length;
   div.id = `jsDiv_${divNum}`;
   div.className = "list__main__div";
+  div.classList.add("dropzone");
+  div.addEventListener("dragend", handleDragend);
+  div.addEventListener("dragenter", handleDragover);
   divArr.push(div);
   mainDiv.appendChild(div);
   createFormUl(div);

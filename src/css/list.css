@@ -1,0 +1,26 @@
+.list__btn {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.list__main {
+  display: flex;
+}
+.list__main__div {
+  margin-left: 20px;
+  height: 150px;
+  width: 177px;
+  background-color: gainsboro;
+}
+
+.list__main__ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0px 5px;
+}
+
+.list__main__ul button {
+  font-size: 5px;
+}

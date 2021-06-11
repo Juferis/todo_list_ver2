@@ -1,0 +1,12 @@
+@import "reset.css";
+@import "list.css";
+
+h1 {
+  text-align: center;
+  background-color: #0078bf;
+  font-weight: 600;
+  font-size: 50px;
+  color: white;
+  padding: 30px;
+  margin-bottom: 20px;
+}
