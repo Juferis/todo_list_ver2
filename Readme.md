@@ -5,7 +5,7 @@
 > 1. Node.js 14.17.0
 > 2. Express 4.17.1
 > 3. Vanilla JS
-> 4. session(예정) -> session의 default값은 Memory Store이다. 메모리는 서버나 클라이언트를 껐다 키면 사라지는 휘발성임  
+> 4. session(예정)  
 
 <br>
 

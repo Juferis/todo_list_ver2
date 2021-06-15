@@ -1,24 +1,32 @@
 const addBtn = document.getElementById("jsBtn");
-const listMain = document.getElementById("jsList");
 const mainDiv = document.getElementById("mainDiv");
 
 let INPUT_VALUE = "";
-let NOW_Div = "";
+let NOW_DIV = "";
 
 let divArr = [];
 let formArr = [];
 let listArr = [];
 let stack = "";
 
+function saveData() {
+  if(sessionStorage.getItem("data")) {
+    sessionStorage.removeItem("data");
+  }
+  sessionStorage.setItem('json', JSON.stringify({data: divArr}));
+  console.log(JSON.parse(sessionStorage.getItem('json')));
+}
+
 function handleTest(li) {
   stack.appendChild(li);
   stack = "";
+  saveData();
 }
 
 function handleDragover(event) {
   if(event.target.className == "list__main__div dropzone"){
     const ul = event.target.lastChild;
-    NOW_Div = event.target.parentNode;
+    NOW_DIV = event.target.parentNode;
     stack = ul;
   }
 }
@@ -27,7 +35,7 @@ function handleDragend(event) {
   const li = event.target;
   const ul = li.parentNode;
   const lastDiv = ul.parentNode;
-  if(lastDiv != NOW_Div) {
+  if(lastDiv != NOW_DIV) {
     ul.removeChild(li);
     handleTest(li);
   }
@@ -54,6 +62,7 @@ function paintList(parentDiv) {
   delBtn.addEventListener("click", handleDelete);
   li.appendChild(span);
   li.appendChild(delBtn);
+  saveData();
 }
 
 function handleSubmit(event) {
