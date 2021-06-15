@@ -3,6 +3,7 @@ var session = require("express-session");
 var path = require("path");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
+var fetch = require("node-fetch");
 var FileStore = require('session-file-store')(session);
 
 var PORT = 3000;
@@ -28,5 +29,13 @@ app.use(express.static(path.join(__dirname + "/src")));
 app.get("/", function (req, res) {
   res.render(__dirname + "/home.html");
 });
+
+// fetch("http://localhost:3000/")
+//   .then(res => res.json())
+//   .then(res => {
+//     if (res.success) {
+//         console.log(res);
+//     }
+//   });
 
 app.listen(3000, serverOn);

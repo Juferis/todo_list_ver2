@@ -9,12 +9,20 @@ let formArr = [];
 let listArr = [];
 let stack = "";
 
-function saveData() {
-  if(sessionStorage.getItem("data")) {
-    sessionStorage.removeItem("data");
+var data = new Object();
+
+if(sessionStorage.getItem("json")) {
+  console.log("있다");
+}
+
+function settingJSON() {
+  for (let i; i < divArr.length; i++) {
+    data.div[i] = divArr[i];
   }
-  sessionStorage.setItem('json', JSON.stringify({data: divArr}));
-  console.log(JSON.parse(sessionStorage.getItem('json')));
+}
+
+function saveData() {
+  console.log(save);
 }
 
 function handleTest(li) {
