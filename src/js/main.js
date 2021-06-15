@@ -13,16 +13,14 @@ let listArr = [];
 var dataArr = [];
 
 function loadList() { // 수정하기
-  fetch('/', {headers: {
-    "Accept" : "application/json"
-  }})
-  .then(function(res) {
-    return res.json();
-  })
-  .then(function(res) {
-    // data를 응답 받은 후의 로직
+  fetch("/", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+  }).then((res) => res.json()).then((json) => {
+    console.log(json);
   });
-
 }
 
 function exportToServer() {
@@ -41,7 +39,7 @@ function saveData() {
         id : divArr[i].id,
         text: text
       }
-      dataArr.push(JSON.stringify(data));
+      dataArr.push(data);
     }
   }
   exportToServer();
