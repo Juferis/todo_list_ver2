@@ -31,7 +31,7 @@ app.get("/", function (req, res) {
 app.post("/", function(req, res) {
   DB = req.body;
   console.log(DB);
-  res.render(__dirname + "/home.html", DB)
+  res.render(__dirname + "/home.html", {DB: DB})
 });
 
 

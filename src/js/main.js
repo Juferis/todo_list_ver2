@@ -13,13 +13,16 @@ let listArr = [];
 var dataArr = [];
 
 function loadList() { // 수정하기
-  fetch("/", {
-    method: 'post',
-    body: JSON.stringify({
-        name: "hyosikkim",
-        batch: 1
-    })
+  fetch('/', {headers: {
+    "Accept" : "application/json"
+  }})
+  .then(function(res) {
+    return res.json();
   })
+  .then(function(res) {
+    // data를 응답 받은 후의 로직
+  });
+
 }
 
 function exportToServer() {
@@ -58,11 +61,11 @@ function handleDragover(event) {
   //   const li = document.getElementById(id);
   //   li.style.marginTop = '20px';
   // }
-  // if(event.target.className == "list__main__div dropzone"){
-  //   const ul = event.target.lastChild;
-  //   NOW_DIV = event.target.parentNode;
-  //   NOW_UL = ul;
-  // } 
+  if(event.target.className == "list__main__div dropzone"){
+    const ul = event.target.lastChild;
+    NOW_DIV = event.target.parentNode;
+    NOW_UL = ul;
+  } 
 }
 
 function handleDragend(event) {
@@ -90,7 +93,6 @@ function handleDivDel(event) {
   mainDiv.removeChild(div);
   mainDiv.removeChild(event.target);
   divArr.pop(div);
-
   saveData()
 }
 
