@@ -2,6 +2,7 @@
   font-size: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .list__main {
@@ -11,7 +12,7 @@
   margin-left: 20px;
   height: 150px;
   width: 177px;
-  background-color: gainsboro;
+  background-color: #0078bf;
 }
 
 .list__main__ul li {
@@ -23,4 +24,8 @@
 
 .list__main__ul button {
   font-size: 5px;
+  
+}
+.ul__li span {
+  color: white;
 }
