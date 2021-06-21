@@ -18,20 +18,4 @@ app.use(logger("dev"));
 
 app.use(express.static(path.join(__dirname + "/src")));
 
-app.get("/", function (req, res) {
-  if(DB !== undefined) {
-    console.log("Data 존재");
-    res.render(__dirname + "/home.html", {data: JSON.stringify(DB)});
-  } else {
-    console.log("Data 없음");
-    res.render(__dirname + "/home.html");
-  }
-});
-app.post("/", function(req, res) {
-  DB = req.body;
-  console.log(DB);
-  res.send(JSON.stringify(DB));
-});
-
-
 app.listen(3000, serverOn);
