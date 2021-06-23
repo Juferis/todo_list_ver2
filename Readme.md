@@ -2,9 +2,10 @@
 
 ## 1.0 사용 기술
 
-> 1. Node.js 14.17.0
-> 2. Express 4.17.1
-> 3. Vanilla JS
+> 1. ES6
+> 2. Node.js v14.17.0
+> 3. Express v4.17.1
+> 4. babel/core  v7.14.6
 
 <br>
 
