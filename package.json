@@ -26,5 +26,9 @@
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
     "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7"
   }
 }
