@@ -6,12 +6,14 @@ import logger from "morgan";
 const PORT = 3000;
 const app = express();
 
-const serverOn = () => console.log(`Express server is Running! http://localhost:${PORT}`);
 
-app.engine("html", require("ejs").renderFile);
+// app.engine("html", require("pug").renderFile);
 app.set("view engine", "html");
-app.use(bodyParser.json());
 app.use(logger("dev"));
 
 app.use(express.static(path.join(__dirname + "/src")));
+
+app.get("/", () => console.log("hello!"));
+
+const serverOn = () => console.log(`Express server is Running! http://localhost:${PORT}`);
 app.listen(3000, serverOn);
