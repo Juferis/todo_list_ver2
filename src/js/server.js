@@ -1,15 +1,16 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import logger from "morgan";
+import morgan from "morgan";
 
 const PORT = 3000;
+const logger = morgan("dev");
 const app = express();
 
 
 // app.engine("html", require("pug").renderFile);
 app.set("view engine", "html");
-app.use(logger("dev"));
+app.use(logger);
 
 app.use(express.static(path.join(__dirname + "/src")));
 
